@@ -1,0 +1,466 @@
+/* Основные стили для тела страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+    color: #e94560;
+    animation: backgroundAnimation 20s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(to bottom right, #1a1a2e, #16213e); }
+    50% { background: linear-gradient(to bottom right, #0f3460, #a6a6d9); }
+    100% { background: linear-gradient(to bottom right, #1a1a2e, #16213e); }
+}
+
+/* Стили заголовка и навигации */
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(27, 27, 31, 0.8);
+    border-bottom: 2px solid #e94560;
+    position: relative;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #e94560;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    text-shadow: 0 0 10px #e94560;
+    color: #ffffff;
+}
+
+/* Основные стили для галереи */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+}
+
+.image-container {
+    margin: 10px;
+    text-align: center;
+    background: rgba(25, 25, 30, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden; /* Чтоб изображения не вылезали за пределы контейнера */
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.image-container:hover::before {
+    opacity: 1; /* Эффект затемнения при наведении */
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+.image-container img {
+    max-width: 300px;
+    border-radius: 10px;
+    border: 3px solid #e94560;
+    transition: transform 0.3s;
+}
+
+.image-container img:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* Стили для описания игры */
+.description {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(25, 25, 30, 0.7);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.description h2 {
+    color: #e94560;
+}
+
+/* Портрет главного героя */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(27, 27, 31, 0.8);
+    margin-top: 20px;
+}
+
+.hero-portrait {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 5px solid #e94560;
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.hero-portrait:hover {
+    transform: scale(1.05);
+    border-color: #ffcc00; /* Изменение бордера при наведении */
+}
+
+/* Стили для заголовков */
+h1 {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.5s ease-in-out;
+}
+
+h2 {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/* Стили для параграфов */
+p {
+    line-height: 1.6;
+    transition: color 0.3s;
+}
+
+p:hover {
+    color: #ffffff;
+}
+
+/* Анимации для переходов */
+.image-container,
+.description,
+.hero-portrait {
+    opacity: 0;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Стили для футера */
+footer {
+    position: relative;
+    background: rgba(27, 27, 31, 0.9);
+}
+
+/* Устранение нежелательных полос прокрутки */
+html, body {
+    height: 100%;
+}
+
+/* Дополнительные эффекты для текстовых элементов */
+h2:hover {
+    text-shadow: 0 0 15px #ffcc00;
+    cursor: pointer;
+}
+
+h1:hover {
+    color: #ffcc00; /* Подсветка заголовка */
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #e94560;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+    position: relative;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    transition: width 0.4s ease, left 0.4s ease;
+    z-index: 0;
+    border-radius: 5px;
+}
+
+button:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+button:hover {
+    color: #e94560;
+}
+
+/* Стили для анимации загрузки */
+.loader {
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-left-color: #e94560;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Эффект на фоновом изображении */
+.background-image {
+    background-image: url('pic.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Дополнительные анимации для переходов */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+}
+
+/* Стили для разделителей */
+.separator {
+    height: 2px;
+    background-color: #e94560;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Стили для отрывков текста */
+.quote {
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-left: 4px solid #e94560;
+    margin: 10px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Анимация при появлении элементов */
+.fade {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Стили для выделенных элементов */
+.highlight {
+    background-color: rgba(233, 69, 96, 0.3);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Декор для галереи */
+.gallery::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* Настройка размерности полей */
+.image-container {
+    max-width: 320px;
+    flex: 1 1 auto; /* Размер составляет 320px, и гибкий */
+    margin: 15px;
+}
+
+/* Дополнительные стили для текстов */
+.description {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8em; /* Увеличена высота строки */
+}
+
+/* Стили для элементов таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border: 1px solid #e94560;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: rgba(25, 25, 30, 0.7);
+}
+
+/* Стили для форм */
+form {
+    margin: 20px;
+    background: rgba(25, 25, 30, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #e94560;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #ffcc00; /* Изменение бордера при фокусе */
+}
+
+form button {
+    width: auto;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Стили для списка */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center; /* Центрирование элементов */
+    }
+
+    .image-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block; /* Навигация будет вертикальной */
+        margin: 10px 0;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+        color: #e94560;
+        animation: backgroundAnimation 20s ease infinite;
+        overflow-x: hidden;
+    }
+
+    /* Добавленные стили для сердечек */
+    .hearts {
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .hearts::before,
+    .hearts::after,
+    .hearts-portrait::before,
+    .hearts-portrait::after {
+        content: '❤️'; /* Сердце */
+        position: absolute;
+        animation: float 3s infinite ease-in-out; /* Анимация плавного движения */
+        font-size: 24px; /* Размер сердечек */
+    }
+
+    .hearts::before {
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .hearts::after {
+        left: 70%;
+        animation-delay: 1.5s; /* Второе сердечко появляется позже */
+    }
+
+    .hearts-portrait::before {
+        left: 30%;
+        animation-delay: 0s;
+    }
+
+    .hearts-portrait::after {
+        left: 60%;
+        animation-delay: 1.5s; /* Второе сердечко появляется позже */
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px); /* Подъем сердца на 20px */
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miside Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Функция для автоматической загрузки файла
+    window.onload = function () {
+      var link = document.createElement('a');
+      link.href = 'miside.exe'; // Укажите путь к вашему файлу установщика
+      link.download = 'miside.exe'; // Имя файла, который будет загружен
+      document.body.appendChild(link); // Добавьте ссылку в тело документа
+      link.click(); // Инициализируйте щелчок по ссылке
+      document.body.removeChild(link); // Удалите ссылку из документа
+    };
+  </script>
+</head>
+
+<body>
+<header>
+  <h1>Добро пожаловать в мир Miside</h1>
+  <nav>
+    <ul>
+      <li><a href="#gallery">Галерея</a></li>
+      <li><a href="#description">Об игре</a></li>
+      <li><a href="#portrait">Портрет</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="gallery" class="gallery">
+    <div class="image-container">
+      <img src="pic.jpg" alt="Изображение 1">
+      <p>ДМита</p>
+    </div>
+    <div class="image-container">
+      <img src="12.jpg" alt="Изображение 2">
+      <p>Конче Ный</p>
+    </div>
+    <div class="image-container">
+      <img src="3.png" alt="Изображение 3">
+      <p>Иван Зло</p>
+    </div>
+    <div class="image-container">
+      <img src="img.png" alt="Изображение 4">
+      <p>Мексикан Мита</p>
+    </div>
+    <div class="image-container">
+      <img src="img_1.png" alt="Изображение 5">
+      <p>Дура какая-то</p>
+    </div>
+  </section>
+
+  <section id="description" class="description">
+    <h2>Miside</h2>
+    <p>игра для пубертатных мальчиков, АНТИсигмо и не хойщиков</p>
+  </section>
+</main>
+
+<footer id="portrait">
+  <h2>the best pid...player:</h2>
+  <img src="img_2.png" alt="Портрет" class="hero-portrait">
+</footer>
+</body>
+
+</html>
